@@ -1,0 +1,20 @@
+.intro {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    top: 0;
+    background: #4ffff9;
+    background: linear-gradient(90deg, 
+    rgba(79, 255, 249, 1) 0%,
+    rgba(0, 217, 255, 1) 35%, 
+    rgba(0, 212, 255, 1) 100%);
+    display: flex; 
+    justify-content: center;
+    align-items: center;
+}
+.cover button{
+    display: block;
+    margin: 20px auto;
+}
+
