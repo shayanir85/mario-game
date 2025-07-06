@@ -58,11 +58,3 @@ mario-platformer/
     ├── mario-jump.png
     └── mario-sit.png
 </pre>
-
-<h2>🔮 Future Improvements</h2>
-<ul>
-  <li>[ ] Add <strong>collision detection</strong> (platforms, obstacles)</li>
-  <li>[ ] Implement <strong>enemies & coins</strong></li>
-  <li>[ ] Add <strong>sound effects & background music</strong></li>
-  <li>[ ] Design <strong>multiple levels</strong></li>
-</ul>
