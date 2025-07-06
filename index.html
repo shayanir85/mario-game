@@ -1,20 +1,36 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/btn-style.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>mario-game</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
 </head>
+
 <body>
-    <section class="intro">
+    <section id="start-menu" class="intro">
         <div class="cover">
-            <img src="img/mario.png" height="250px"  alt="smash bros">
-            <button class="button-19">
+            <img src="img/mario.png" height="250px" alt="smash bros">
+            <button id="btn-start" class="button-19">
                 Start Game
             </button>
         </div>
     </section>
+    <div id="Game" class="GameContainer">
+        <div class="clouds">
+            <div class=" cloud"></div>
+            <div class=" cloud"></div>
+            <div class=" cloud"></div>
+            <div class=" cloud"></div>
+        </div>
+        <div class="ground">
+        </div>
+        <img id="mario" class="character " src="../img/mario-idle.png" alt="">
+    </div>
+    <script src="js/mario.js"></script>
 </body>
+
 </html>

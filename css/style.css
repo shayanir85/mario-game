@@ -5,16 +5,155 @@
     right: 0;
     top: 0;
     background: #4ffff9;
-    background: linear-gradient(90deg, 
-    rgba(79, 255, 249, 1) 0%,
-    rgba(0, 217, 255, 1) 35%, 
-    rgba(0, 212, 255, 1) 100%);
-    display: flex; 
+    background: linear-gradient(90deg,
+            rgba(79, 255, 249, 1) 0%,
+            #00d9ff 35%,
+            rgba(0, 212, 255, 1) 100%);
+    display: flex;
     justify-content: center;
     align-items: center;
 }
-.cover button{
+
+.cover button {
     display: block;
     margin: 20px auto;
 }
 
+.show {
+    display: block !important;
+}
+
+.GameContainer {
+    display: none;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    top: 0;
+    background: #4ffff9;
+    background: linear-gradient(90deg,
+            rgba(79, 255, 249, 1) 0%,
+            rgba(0, 217, 255, 1) 35%,
+            rgba(0, 212, 255, 1) 100%);
+}
+
+.ground {
+    height: 25%;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-size: 100px;
+    background-repeat: repeat;
+    background-image: url('../img/block.png');
+}
+
+.clouds {
+    position: relative;
+    top: 0;
+    width: 100%;
+    height: 75%;
+}
+
+.cloud {
+    position: absolute;
+    height: 61px;
+    width: 100px;
+    top: 0;
+    left: 0;
+    right: 0;
+    background-size: 100px;
+    background-repeat: cover;
+    background-image: url('../img/cloud.png');
+    animation: cloud 20s linear infinite;
+}
+
+.cloud:nth-child(1) {
+    left: 80%;
+    top: 8%;
+    opacity: 0.7 !important;
+    transform: scale(1.3);
+    filter: blur(1px);
+    animation: cloud 18s ease-in-out infinite alternate;
+
+}
+
+.cloud:nth-child(2) {
+    left: 65%;
+    top: 23%;
+    opacity: 0.4 !important;
+    transform: scale(0.8) rotate(5deg);
+    filter: blur(0.5px);
+    animation: cloud 25s ease-in-out infinite;
+
+}
+
+.cloud:nth-child(3) {
+    left: 42%;
+    top: 12%;
+    opacity: 0.9 !important;
+    transform: scale(1.1) rotate(-3deg);
+    filter: blur(1.5px);
+    animation: cloud 15s ease-in-out infinite;
+
+}
+
+.cloud:nth-child(4) {
+    left: 80%;
+    top: 5%;
+    opacity: 0.6 !important;
+    transform: scale(1.5) rotate(2deg);
+    filter: blur(2px);
+    animation: cloud 30s ease-in-out infinite;
+
+}
+
+.flip {
+    -webkit-transform: scaleX(-1);
+    transform: scaleX(-1);
+}
+
+
+.jump {
+    animation: jump 0.5s ease-in-out;
+}
+
+
+.character {
+    position: absolute;
+    bottom: 25%;
+    left: 20px;
+    width: 50px;
+    height: 50px;
+    background-image: url('../img/character.png');
+    background-size: cover;
+}
+
+@keyframes jump {
+    0% {
+        bottom: 25%;
+    }
+
+    50% {
+        bottom: 35%;
+    }
+
+    100% {
+        bottom: 25%;
+    }
+}
+
+
+@keyframes cloud {
+    0% {
+        opacity: 0;
+    }
+
+    50% {
+        opacity: 1;
+    }
+
+    100% {
+        left: -50%;
+    }
+}
