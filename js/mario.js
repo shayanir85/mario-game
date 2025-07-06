@@ -5,6 +5,8 @@ const body = document.body;
 const character = document.getElementById('mario');
 let timer = 0;
 var x = 20;
+var y = 20;
+let jumping = false;
 let moving = false;
 btn_start.addEventListener('click', () => {
     start_menu.classList.add('animate__animated');
@@ -15,13 +17,9 @@ btn_start.addEventListener('click', () => {
         Game.classList.add('animate__fadeIn');
     }, 400)
 });
-function walkRight(step) {
+function walk(step) {
     x += step;
 }
-function walkLeft(step) {
-    x -= step;
-}
-
 body.addEventListener('keydown', (event) => {
     const btn = event.keyCode;
     const arrow_up = 38;
@@ -31,9 +29,23 @@ body.addEventListener('keydown', (event) => {
     timer++;
     switch (btn) {
         case arrow_up:
-            console.log('Arrow Up Pressed');
-            character.classList.add('jump');
-            character.src = '../img/mario-jump.png';
+            if (!jumping) {
+                console.log('Arrow Up Pressed');
+                character.src = '../img/mario-jump.png';
+                character.style.bottom = (y + 350) + 'px'
+                character.style.width = 61 + 'px';
+                jumping = true;
+                setTimeout(() => {
+                    character.style.bottom = (250) + 'px'
+                    y = 20;
+                    setTimeout(() => {
+                        character.style.width = 50 + 'px';
+                        character.src = '../img/mario-idle.png';
+                        jumping = false;
+                    }, 200)
+                }, 500);
+
+            }
             break;
         case arrow_down:
             console.log('Arrow Down Pressed');
@@ -41,30 +53,30 @@ body.addEventListener('keydown', (event) => {
             break;
         case arrow_left:
             console.log('Arrow left Pressed');
-            if (timer > 5) {
-                character.classList.add('flip');
-                walkLeft(5);
-                character.style.left = x + 'px';
 
-                if (!moving) {
-                    character.src = '../img/mario-walk.gif';
-                    moving = true;
-                }
+            character.classList.add('flip');
+            walk(-5);
+            character.style.left = x + 'px';
+
+            if (!moving) {
+                character.src = '../img/mario-walk.gif';
+                moving = true;
+
             }
 
             break;
         case arrow_right:
             console.log('Arrow right Pressed');
-            if (timer > 5) {
-                character.classList.remove('flip');
-                walkRight(5);
-                character.style.left = x + 'px';
 
-                if (!moving) {
-                    character.src = '../img/mario-walk.gif';
-                    moving = true;
-                }
+            character.classList.remove('flip');
+            walk(5);
+            character.style.left = x + 'px';
+
+            if (!moving) {
+                character.src = '../img/mario-walk.gif';
+                moving = true;
             }
+
             break;
     }
 });
@@ -77,9 +89,7 @@ body.addEventListener('keyup', (event) => {
 
     switch (btn) {
         case arrow_up:
-            setTimeout(() => {
-                character.classList.remove('jump');
-            }, 500);
+            break;
         case arrow_down:
             character.src = '../img/mario-idle.png';
             break;
