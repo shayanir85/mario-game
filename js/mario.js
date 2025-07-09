@@ -11,7 +11,7 @@ var x = 20;
 var y = 20;
 let jumping = false;
 let moving = false;
-
+let timer = 0;
 btn_start.addEventListener('click', () => {
     start_menu.classList.add('animate__animated');
     start_menu.classList.add('animate__fadeOut');
@@ -86,9 +86,11 @@ body.addEventListener('keyup', (event) => {
             break;
         case arrow_left:
             KeyStats.left = false;
+            resetpose();
             break;
         case arrow_right:
             KeyStats.right = false;
+            resetpose();
             break;
     }
 });
