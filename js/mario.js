@@ -109,21 +109,25 @@ body.addEventListener('keyup', (event) => {
 
     switch (btn) {
         case arrow_up:
+            KeyStats.up = false
             break;
         case arrow_down:
-            character.src = '../img/mario-idle.png';
+            KeyStats.down = false
+            // character.src = '../img/mario-idle.png';
             break;
         case arrow_left:
-            if (moving) {
-                character.src = '../img/mario-idle.png';
-                moving = false;
-            }
+            KeyStats.left = false
+            // if (moving) {
+            //     character.src = '../img/mario-idle.png';
+            //     moving = false;
+            // }
             break;
         case arrow_right:
-            if (moving) {
-                character.src = '../img/mario-idle.png';
-                moving = false;
-            }
+            KeyStats.right = false
+            // if (moving) {
+            //     character.src = '../img/mario-idle.png';
+            //     moving = false;
+            // }
             break;
     }
 });
